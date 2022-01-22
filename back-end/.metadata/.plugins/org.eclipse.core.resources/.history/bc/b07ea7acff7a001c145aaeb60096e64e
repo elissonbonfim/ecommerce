@@ -1,0 +1,114 @@
+package com.ecommerce.AngularSpring.model;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_PRODUTO")
+public class Produto {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name = "Name", nullable = false)
+	private String nome;
+	
+	@Column(name = "Descrição", nullable = false)
+	private String descricao;
+	
+	@Column(name = "Preço_Compra", nullable = false)
+	private BigDecimal precoCompra;
+	
+	@Column(name = "Preço_Venda", nullable = false)
+	private BigDecimal precoVenda;
+	
+	@Column(name = "Quantidade_Estoque", nullable = false)
+	private Integer qtdEstoque;
+	
+	@Column(name = "Ativo")
+	private Boolean ativo;
+	
+	@Column(name = "Data_Cadastro")
+	private LocalDate dataCadastro;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public BigDecimal getPrecoCompra() {
+		return precoCompra;
+	}
+	public void setPrecoCompra(BigDecimal precoCompra) {
+		this.precoCompra = precoCompra;
+	}
+	public BigDecimal getPrecoVenda() {
+		return precoVenda;
+	}
+	public void setPrecoVenda(BigDecimal precoVenda) {
+		this.precoVenda = precoVenda;
+	}
+	public Integer getQtdEstoque() {
+		return qtdEstoque;
+	}
+	public void setQtdEstoque(Integer qtdEstoque) {
+		this.qtdEstoque = qtdEstoque;
+	}
+	public Boolean getAtivo() {
+		return ativo;
+	}
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+	public LocalDate getDataCadastro() {
+		return dataCadastro;
+	}
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produto other = (Produto) obj;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		return true;
+	}
+	
+}

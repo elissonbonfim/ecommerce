@@ -1,0 +1,5 @@
+package com.ecommerce.AngularSpring.model;
+
+public class Produto {
+
+}
